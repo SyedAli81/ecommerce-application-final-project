@@ -47,4 +47,7 @@ const products = [
     description: "The upper Nike Dunk Low Retro White Black is constructed of white leather with black leather overlays and Swooshes. Classic Nike branding is featured on the nylon tongue, nodding to traditional Dunk design elements. A white midsole and black outsole complete the design.",
     price: 130,
   },
-]
+];
+
+export default products;
+
