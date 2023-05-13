@@ -1,10 +1,10 @@
 import express from "express";
 import dotenv from "dotenv";
-import connectDatabase from "./config/connection";
+import connectDatabase from "./config/connection.js";
 // import ImportData from "./DataImport.js";
-import productRoute from "./routes/productRoutes";
-import userRouter from "./routes/userRoutes";
-import orderRouter from "./models/OrderModel";
+import productRoute from "./routes/productRoutes.js";
+import userRouter from "./routes/userRoutes.js";
+import orderRouter from "./models/OrderModel.js";
 
 dotenv.config();
 connectDatabase();
