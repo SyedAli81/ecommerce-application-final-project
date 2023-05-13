@@ -11,19 +11,16 @@ connectDatabase();
 const app = express();
 app.use(express.json());
 
-// API
-app.use("/api/import", ImportData);
-app.use("/api/products", productRoute);
-app.use("/api/users", userRouter);
-app.use("/api/orders", orderRouter);
-app.get("/api/config/paypal", (req, res) => {
-  res.send(process.env.PAYPAL_CLIENT_ID);
-});
+// // API
+// app.use("/api/import", ImportData);
+// app.use("/api/products", productRoute);
+// app.use("/api/users", userRouter);
+// app.use("/api/orders", orderRouter);
+// app.get("/api/config/paypal", (req, res) => {
+//   res.send(process.env.PAYPAL_CLIENT_ID);
+// });
 
-// ERROR HANDLER
-app.use(notFound);
-app.use(errorHandler);
 
-const PORT = process.env.PORT || 1000;
+const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, console.log(`server run in port ${PORT}`));
