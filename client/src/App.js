@@ -7,11 +7,15 @@ import Data from "./components/Data"
 import Cart from "./common/Cart/Cart"
 import Footer from "./common/footer/Footer"
 import Sdata from "./components/shops/Sdata"
-import StripeContainer from './components/StripeContainer';
+// import StripeContainer from './components/StripeContainer';
+
 
 function App() {
-  const [showItem, setShowItem] = useState(false);
-
+  // const [showItem, setShowItem] = useState(false);
+  // const options = {
+    // passing the client secret obtained from the server
+    // clientSecret: 'sk_test_51N6jExDVXifGVRVqSuwXfj7A5rthF7ZdspIvxznkuwDICUD8IeF1FinLNR3tTTqF45ogpy03hn2GwatAybB6srdF00JOYdtfMq',
+  // };
 
   //Step 1 :
   const { productItems } = Data
@@ -55,6 +59,7 @@ function App() {
           </Route>
           <Route path='/cart' exact>
             <Cart CartItem={CartItem} addToCart={addToCart} decreaseQty={decreaseQty} />
+            
           </Route>
         </Switch>
         <Footer />
