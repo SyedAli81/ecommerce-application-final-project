@@ -1,21 +1,26 @@
-const express = require('express');
-const path = require('path');
-const db = require('./config/connection');
-const routes = require('./routes');
+import express from "express";
+import dotenv from "dotenv";
+import connectDatabase from "./config/connection.js";
+// import ImportData from "./DataImport.js";
+import productRoute from "./routes/productRoutes.js";
+import userRouter from "./routes/userRoutes.js";
+import orderRouter from "./models/OrderModel.js";
 
+dotenv.config();
+connectDatabase();
 const app = express();
-const PORT = process.env.PORT || 3001;
-
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// if we're in production, serve client/build as static assets
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../client/build')));
-}
+// // API
+// app.use("/api/import", ImportData);
+// app.use("/api/products", productRoute);
+// app.use("/api/users", userRouter);
+// app.use("/api/orders", orderRouter);
+// app.get("/api/config/paypal", (req, res) => {
+//   res.send(process.env.PAYPAL_CLIENT_ID);
+// });
 
-app.use(routes);
 
-db.once('open', () => {
-  app.listen(PORT, () => console.log(`🌍 Now listening on localhost:${PORT}`));
-});
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, console.log(`server run in port ${PORT}`));

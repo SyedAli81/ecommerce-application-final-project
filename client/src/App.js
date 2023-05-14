@@ -7,8 +7,10 @@ import Data from "./components/Data"
 import Cart from "./common/Cart/Cart"
 import Footer from "./common/footer/Footer"
 import Sdata from "./components/shops/Sdata"
+import StripeContainer from './components/StripeContainer';
 
 function App() {
+  const [showItem, setShowItem] = useState(false);
 
 
   //Step 1 :
@@ -57,8 +59,28 @@ function App() {
         </Switch>
         <Footer />
       </Router>
+      
     </>
+    
   )
 }
+// function Stripe() {
+// 	const [showItem, setShowItem] = useState(false);
+// 	return (
+// 		<div className='Stripe'>
+// 			<h1>Sports Web</h1>
+// 			<h2>Checkout</h2>
+
+// 			{showItem ? (
+// 				<StripeContainer />
+// 			) : (
+// 				<>
+// 					<h3>$10.00</h3>
+// 					<button onClick={() => setShowItem(true)}>Purchase</button>
+// 				</>
+// 			)}
+// 		</div>
+// 	);
+// }
 
 export default App

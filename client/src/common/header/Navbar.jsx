@@ -37,10 +37,10 @@ const Navbar = () => {
                 <Link to='/contact'>contact</Link>
               </li>
             </ul>
-
-            <button className='toggle' onClick={() => setMobileMenu(!MobileMenu)}>
+{/* Changed to buttonToggle to no interfer with strip Button example */}
+            <buttonToggle className='toggle' onClick={() => setMobileMenu(!MobileMenu)}>
               {MobileMenu ? <i className='fas fa-times close home-btn'></i> : <i className='fas fa-bars open'></i>}
-            </button>
+            </buttonToggle>
           </div>
         </div>
       </header>
