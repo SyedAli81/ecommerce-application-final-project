@@ -1,0 +1,103 @@
+<main class="container-lg  shadow rounded-4 text-center my-5 mx-5 overflow-hidden">
+  <div class="row">
+    <div class="col-lg-8 p-5 ">
+      {{> dashboard-nav}}
+      <div class="row text-start justify-content-start between">
+        {{#each results}}
+          <div class="col-12">
+            <h5 class="text-dark text-capitalize mt-4">
+              {{@key}}
+              </h5>
+            {{#each this}}
+           <div class="d-flex justify-content-between align-items-center py-4 border-bottom">
+            <select
+              class="form-select  text-capitalize form-invisible  text-success-emphasis border-primary-subtle border-2 text-primary food-type form-invisible pe-none ps-2"
+              aria-label="Select type of meal" name="food_type">
+              <option selected>{{ this.food_type }}</option>
+              <option value="breakfast">Breakfast</option>
+              <option value="morning_snack">Morning snack</option>
+              <option value="lunch">Lunch</option>
+              <option value="afternoon_snack">Afternoon snack</option>
+              <option value="dinner">Dinner</option>
+              <option value="bedtime_snack">Bedtime snack</option>
+              <option value="extra">Extra</option>
+            </select>
+           <input type="text" class="form-control-plaintext ps-2 pe-none food-name" name="food_name"
+              value="{{ food_name }}">
+            {{> calories-icon }}<input type="text" class="form-control-plaintext pe-none ps-2 calories" name="calories" id="calories"
+              value="{{ calories }} "> 
+              <div class="ms-auto d-flex">
+
+            {{> edit-icon data-id="{{this.id}}"}}{{> save-icon data-id="{{this.id}}"}}
+            {{!-- {{> delete-icon data-id="{{id}}"}} --}}
+              </div>
+              </div>
+            {{/each}}
+            </div>
+        {{/each}}
+      </div>
+
+    </div>
+    <div class="col-lg-4 position-relative overflow-hidden m-0 p-5 bg-primary-emphasis">
+     
+      <p class="lead text-light text-center mb-4">
+        Our mission is to help you build healthy habits that last a lifetime, starting with your nutrition.
+        Track your food intake, better understand your eating habits, and optimize your results in the gym.</p>
+      </p>
+      <div class="meal">
+        <h2 class="text-primary mb-4">Add new Meal</h2>
+        <form id="new-meal-form" class=" text-success-emphasis">
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">
+              {{> time-icon}}
+            </span>
+             <input type="date" id="new_date"  class="form-control shadow-sm border-primary-subtle border-2 text-primary">
+
+         
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">
+              {{> food-icon}}
+            </span>
+            <input type="text" name="new_food_name"
+              class="form-control shadow-sm border-primary-subtle border-2 text-primary" id="new_food_name"
+              placeholder="Food name">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text border-2 border-primary-subtle" id="basic-addon1">
+              {{> calories-icon}}
+
+            </span>
+            <input type="number" name="new_calories"
+              class="form-control shadow-sm border-primary-subtle border-2 text-primary" id="new_calories"
+              placeholder="Calories">
+          </div>
+          <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">
+              {{> time-icon}}
+
+            </label>
+            <select class="form-select shadow-sm text-success-emphasis border-primary-subtle border-2 text-primary"
+              aria-label="Select type of meal" name="new_food_type" id="new_food_type">
+              <option selected>Select type of meal</option>
+              <option value="breakfast">Breakfast</option>
+              <option value="morning_snack">Morning snack</option>
+              <option value="lunch">Lunch</option>
+              <option value="afternoon_snack">Afternoon snack</option>
+              <option value="dinner">Dinner</option>
+              <option value="bedtime_snack">Bedtime snack</option>
+              <option value="extra">Extra</option>
+            </select>
+          </div>
+          <div class="d-grid mt-4">
+            <button type="submit" class="btn btn-primary btn-lg">Create</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script src="/js/edit.js"></script>
+<script src="/js/new.js"></script>
+<script src="/js/logout.js"></script>
