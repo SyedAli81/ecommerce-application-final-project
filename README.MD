@@ -19,14 +19,25 @@ What you will need to install for code to run
 
 
 ## Usage
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+## NPM Start
 
-    ```md
+Runs the app in the development mode.
+Open http://localhost:3000 to view it in the browser.
+
+The page will reload if you make edits.
+You will also see any lint errors in the console.
 
 
-  Home-Page ![Sportsweb](https://github.com/JustGritJordan/nutrition-journal/assets/111651316/61346dcc-cef5-4540-aa47-8ae21dd2ae31)
 
-    ```
+
+Home-Page ![Sportsweb](https://github.com/JustGritJordan/nutrition-journal/assets/111651316/61346dcc-cef5-4540-aa47-8ae21dd2ae31)
+
+  
+  
+  
+![Flash Deals and Fashion](https://github.com/JustGritJordan/meals-a-day/assets/111651316/580e5719-1a6b-4d92-830c-610249be38a8)
+
+
 
 ## Credits
 
@@ -43,12 +54,3 @@ LISCENSE.MIT
 ---
 
 
-
-## Features
-
-If your project has a lot of features, list them here.
-
-## How to Contribute
-
-
-## Tests

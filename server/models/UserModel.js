@@ -1,44 +1,72 @@
-import mongoose from "mongoose";
-import bcrypt from "bcryptjs";
+// Basic USER ID, Name, password, email, and meals
+// Meal will reference meals table, to be an array of all meals
+const { Model, DataTypes } = require('sequelize');
+const bcrypt = require('bcrypt');
+const sequelize = require('../config/connection');
 
+// create our Trip model
+class User extends Model {
+ checkPassword(loginPw) {
+  return bcrypt.compareSync(loginPw, this.password);
+ }
+}
 
-const userSchema = mongoose.Schema(
-  {
-    username: {
-      type: String,
-      required: true,
-    },
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    password: {
-      type: String,
-      required: true,
-    },
+// create fields/columns for Trip model
+User.init(
+ {
+  id: {
+   type: DataTypes.INTEGER,
+   allowNull: false,
+   primaryKey: true,
+   autoIncrement: true,
   },
-  {
-    toJSON: {
-      getters: true,
-    },
-  }
+  name: {
+   type: DataTypes.STRING,
+   allowNull: true,
+  },
+  height: {
+   type: DataTypes.DECIMAL(10, 2),
+   allowNull: true,
+  },
+  weight: {
+   type: DataTypes.INTEGER,
+   allowNull: true,
+  },
+  email: {
+   type: DataTypes.STRING,
+   allowNull: false,
+   unique: true,
+   validate: {
+    isEmail: true,
+   },
+  },
+  password: {
+   type: DataTypes.STRING,
+   allowNull: false,
+   validate: {
+    len: [4],
+   },
+  },
+ },
+ {
+  hooks: {
+   // set up beforeCreate lifecycle "hook" functionality
+   beforeCreate: async (newUserData) => {
+    newUserData.password = await bcrypt.hash(newUserData.password, 10);
+    return newUserData;
+   },
+   beforeUpdate: async (updatedUserData) => {
+    updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+    return updatedUserData;
+   },
+  },
+  sequelize,
+  timestamps: false,
+  freezeTableName: true,
+  underscored: true,
+  modelName: 'User',
+ }
 );
 
-// Login
-userSchema.methods.matchPassword = async function (enterPassword) {
-  return await bcrypt.compare(enterPassword, this.password);
-};
+module.exports = User;
 
-// Register
-userSchema.pre("save", async function (next) {
-  if (!this.isModified("password")) {
-    next();
-  }
-  const salt = await bcrypt.genSalt(10);
-  this.password = await bcrypt.hash(this.password, salt);
-});
-
-const User = mongoose.model("User", userSchema);
-
-export default User;
