@@ -8,6 +8,8 @@ import Cart from "./common/Cart/Cart"
 import Footer from "./common/footer/Footer"
 import Sdata from "./components/shops/Sdata"
 import StripeContainer from './components/StripeContainer';
+import MyHeader from './components/SignUp/MyHeader'
+import RegestrationForm from './components/SignUp/RegestrationForm'
 
 function App() {
   const [showItem, setShowItem] = useState(false);
@@ -55,6 +57,10 @@ function App() {
           </Route>
           <Route path='/cart' exact>
             <Cart CartItem={CartItem} addToCart={addToCart} decreaseQty={decreaseQty} />
+          </Route>
+          <Route path='/user' exact>
+            <MyHeader />
+            <RegestrationForm />
           </Route>
         </Switch>
         <Footer />
