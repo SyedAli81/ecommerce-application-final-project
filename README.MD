@@ -2,14 +2,20 @@
 
 ## Description
 
-This is an ecommerce website where user will be able to login to their own personal profiles, select from different clothes and accesories in a cart. Then be able to purchase thier items through stripe API
+An online marketplace application with seller accounts, product search and suggestions, shopping cart, order management, 
+payment processing with Stripe, developed using React, Node, Express and MongoDB.
 
 
 
 
 ## Installation
 
-React, MongoDB, Node.js
+What you will need to install for code to run
+1. Node
+2. NPM
+3. MonngoDB
+4. Stripe Account with Test Data
+
 
 
 ## Usage
@@ -24,11 +30,11 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 ## Credits
 
-- KINGALI112
+- KINGALI112 - https://github.com/KINGALI112
 
-- SiuTsang
+- SiuTsang - https://github.com/SiuTsang
 
-- JustGritJordan
+- JustGritJordan- https://github.com/JustGritJordan
 
 ## License
 
