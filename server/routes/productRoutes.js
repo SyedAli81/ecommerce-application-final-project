@@ -1,7 +1,7 @@
 import express from "express";
 import asyncHandler from "express-async-handler";
-import Product from "./../Models/ProductModel.js";
-import { admin, protect } from "./../Middleware/AuthMiddleware.js";
+import Product from "../models/ProductModel.js";
+import { protect } from "../utils/auth.js";
 
 const productRoute = express.Router();
 
@@ -28,16 +28,15 @@ productRoute.get(
   })
 );
 
-// ADMIN GET ALL PRODUCT WITHOUT SEARCH AND PEGINATION
-productRoute.get(
-  "/all",
-  protect,
-  admin,
-  asyncHandler(async (req, res) => {
-    const products = await Product.find({}).sort({ _id: -1 });
-    res.json(products);
-  })
-);
+// // ADMIN GET ALL PRODUCT WITHOUT SEARCH AND PEGINATION
+// productRoute.get(
+//   "/all",
+//   protect,
+//   asyncHandler(async (req, res) => {
+//     const products = await Product.find({}).sort({ _id: -1 });
+//     res.json(products);
+//   })
+// );
 
 // GET SINGLE PRODUCT
 productRoute.get(
@@ -53,49 +52,48 @@ productRoute.get(
   })
 );
 
-// PRODUCT REVIEW
-productRoute.post(
-  "/:id/review",
-  protect,
-  asyncHandler(async (req, res) => {
-    const { rating, comment } = req.body;
-    const product = await Product.findById(req.params.id);
+// // PRODUCT REVIEW
+// productRoute.post(
+//   "/:id/review",
+//   protect,
+//   asyncHandler(async (req, res) => {
+//     const { rating, comment } = req.body;
+//     const product = await Product.findById(req.params.id);
 
-    if (product) {
-      const alreadyReviewed = product.reviews.find(
-        (r) => r.user.toString() === req.user._id.toString()
-      );
-      if (alreadyReviewed) {
-        res.status(400);
-        throw new Error("Product already Reviewed");
-      }
-      const review = {
-        name: req.user.name,
-        rating: Number(rating),
-        comment,
-        user: req.user._id,
-      };
+//     if (product) {
+//       const alreadyReviewed = product.reviews.find(
+//         (r) => r.user.toString() === req.user._id.toString()
+//       );
+//       if (alreadyReviewed) {
+//         res.status(400);
+//         throw new Error("Product already Reviewed");
+//       }
+//       const review = {
+//         name: req.user.name,
+//         rating: Number(rating),
+//         comment,
+//         user: req.user._id,
+//       };
 
-      product.reviews.push(review);
-      product.numReviews = product.reviews.length;
-      product.rating =
-        product.reviews.reduce((acc, item) => item.rating + acc, 0) /
-        product.reviews.length;
+//       product.reviews.push(review);
+//       product.numReviews = product.reviews.length;
+//       product.rating =
+//         product.reviews.reduce((acc, item) => item.rating + acc, 0) /
+//         product.reviews.length;
 
-      await product.save();
-      res.status(201).json({ message: "Reviewed Added" });
-    } else {
-      res.status(404);
-      throw new Error("Product not Found");
-    }
-  })
-);
+//       await product.save();
+//       res.status(201).json({ message: "Reviewed Added" });
+//     } else {
+//       res.status(404);
+//       throw new Error("Product not Found");
+//     }
+//   })
+// );
 
 // DELETE PRODUCT
 productRoute.delete(
   "/:id",
   protect,
-  admin,
   asyncHandler(async (req, res) => {
     const product = await Product.findById(req.params.id);
     if (product) {
@@ -112,7 +110,6 @@ productRoute.delete(
 productRoute.post(
   "/",
   protect,
-  admin,
   asyncHandler(async (req, res) => {
     const { name, price, description, image, countInStock } = req.body;
     const productExist = await Product.findOne({ name });
@@ -143,17 +140,15 @@ productRoute.post(
 productRoute.put(
   "/:id",
   protect,
-  admin,
   asyncHandler(async (req, res) => {
-    const { name, price, description, image, countInStock } = req.body;
+    const { name, price, description, image } = req.body;
     const product = await Product.findById(req.params.id);
     if (product) {
       product.name = name || product.name;
       product.price = price || product.price;
       product.description = description || product.description;
       product.image = image || product.image;
-      product.countInStock = countInStock || product.countInStock;
-
+     
       const updatedProduct = await product.save();
       res.json(updatedProduct);
     } else {

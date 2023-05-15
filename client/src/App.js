@@ -12,6 +12,8 @@ import MyHeader from "./components/SignUp/MyHeader"
 import Register from "./components/SignUp/RegestrationForm"
 
 import StripeContainer from './components/StripeContainer';
+import MyHeader from './components/SignUp/MyHeader'
+import RegestrationForm from './components/SignUp/RegestrationForm'
 
 
 function App() {
@@ -69,6 +71,10 @@ function App() {
             <MyHeader />
             <Register />
             <Route path='/shop' element={<Shop />}/>
+          </Route>
+          <Route path='/user' exact>
+            <MyHeader />
+            <RegestrationForm />
           </Route>
         </Switch>
         <Footer />

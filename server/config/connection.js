@@ -1,5 +1,14 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/ecommerce');
+const connectDatabase = async () => {
+  try {
+    mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost/sportsweb');
 
-module.exports = mongoose.connection;
+    console.log(`MongoDB Connected`);
+  } catch (error) {
+    console.error(`Error: ${error.message}`);
+    process.exit(1);
+  }
+};
+
+export default connectDatabase;
