@@ -16,6 +16,11 @@ What you will need to install for code to run
 3. MonngoDB
 4. Stripe Account with Test Data
 
+*Must Create an account on Stripe.com to use Test Data
+![Stripe Test](https://github.com/JustGritJordan/nutrition-journal/assets/111651316/f1f21a55-de77-459e-9f85-8f4fb1e0d41a)
+
+
+
 
 
 ## Usage
@@ -36,6 +41,10 @@ Home-Page ![Sportsweb](https://github.com/JustGritJordan/nutrition-journal/asset
   
   
 ![Flash Deals and Fashion](https://github.com/JustGritJordan/meals-a-day/assets/111651316/580e5719-1a6b-4d92-830c-610249be38a8)
+
+
+
+
 
 
 
