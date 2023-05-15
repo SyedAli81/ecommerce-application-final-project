@@ -1,12 +1,15 @@
 import React, { useState } from "react"
 import "./App.css"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import Shop from "./pages/Shop"
 import Header from "./common/header/Header"
 import Pages from "./pages/Pages"
 import Data from "./components/Data"
 import Cart from "./common/Cart/Cart"
 import Footer from "./common/footer/Footer"
 import Sdata from "./components/shops/Sdata"
+import {} from './pages/Shop'
+
 // import StripeContainer from './components/StripeContainer';
 
 
@@ -59,7 +62,7 @@ function App() {
           </Route>
           <Route path='/cart' exact>
             <Cart CartItem={CartItem} addToCart={addToCart} decreaseQty={decreaseQty} />
-            
+            <Route path='/shop' element={<Shop />}/>
           </Route>
         </Switch>
         <Footer />
