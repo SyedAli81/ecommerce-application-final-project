@@ -1,6 +1,12 @@
 # ecommerce-application-final-project
 
-# <Sportsweb>
+# User story
+The user open the website
+The user can login, create an account.
+User can browse through different categories listed in the website
+User clicks on the desired item to add to cart
+Complete the purchase
+
 
 ## Description
 
