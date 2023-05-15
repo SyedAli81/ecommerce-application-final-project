@@ -40,7 +40,8 @@ export default function Shop(){
           })}
         </div>
       </section>
-        
+      <h2>Charitable Donations <i class="fa-solid fa-heart"></i></h2>
+      
 </>
     )
 }
