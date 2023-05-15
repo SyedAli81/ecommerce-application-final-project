@@ -1,24 +1,25 @@
+
 export default function Shop(){
     const data = [
         {
-          cover: <i class='fa-solid fa-truck-fast'></i>,
-          title: "Worldwide Delivery",
-          decs: "We offer competitive prices on our 100 million plus product any range.",
+          cover: <i class="fa-solid fa-shirt"></i>,
+          title: "Clothes",
+          decs: "Shop everything from our Mens, Womens, and Kids department",
         },
         {
-          cover: <i class='fa-solid fa-id-card'></i>,
-          title: "Safe Payment",
-          decs: "We offer competitive prices on our 100 million plus product any range.",
+          cover: <i class="fa-solid fa-bag-shopping"></i>,
+          title: "Accessories",
+          decs: "Browse our list of different accessory items ",
         },
         {
-          cover: <i class='fa-solid fa-shield'></i>,
-          title: "Shop With Confidence ",
-          decs: "We offer competitive prices on our 100 million plus product any range.",
+          cover: <i class="fa-solid fa-gifts"></i>,
+          title: "Gifts ",
+          decs: "Check your lists of item in your gift bag",
         },
         {
-          cover: <i class='fa-solid fa-headset'></i>,
-          title: "24/7 Support ",
-          decs: "We offer competitive prices on our 100 million plus product any range.",
+          cover: <i class="fa-solid fa-gem"></i>,
+          title: "Jewelery ",
+          decs: "Select from our many jewelery options",
         },
       ]
     return(

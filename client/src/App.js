@@ -8,9 +8,8 @@ import Data from "./components/Data"
 import Cart from "./common/Cart/Cart"
 import Footer from "./common/footer/Footer"
 import Sdata from "./components/shops/Sdata"
-import {} from './pages/Shop'
 
-// import StripeContainer from './components/StripeContainer';
+import StripeContainer from './components/StripeContainer';
 
 
 function App() {

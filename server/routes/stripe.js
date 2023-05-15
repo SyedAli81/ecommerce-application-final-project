@@ -13,10 +13,10 @@ post '/create-checkout-session' do
       quantity: 1,
     }],
     mode: 'payment',
-    # These placeholder URLs will be replaced in a following step.
+    // # These placeholder URLs will be replaced in a following step.
     success_url: 'https://example.com/success',
     cancel_url: 'https://example.com/cancel',
-  })
+  });
 
-  redirect session.url, 303
+  res.redirect(303, session.url);
 end
