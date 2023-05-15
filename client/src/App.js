@@ -8,6 +8,8 @@ import Data from "./components/Data"
 import Cart from "./common/Cart/Cart"
 import Footer from "./common/footer/Footer"
 import Sdata from "./components/shops/Sdata"
+import MyHeader from "./components/SignUp/MyHeader"
+import Register from "./components/SignUp/RegestrationForm"
 
 import StripeContainer from './components/StripeContainer';
 
@@ -61,6 +63,11 @@ function App() {
           </Route>
           <Route path='/cart' exact>
             <Cart CartItem={CartItem} addToCart={addToCart} decreaseQty={decreaseQty} />
+            <Route path='/shop' element={<Shop />}/>
+          </Route>
+          <Route path='/user' exact>
+            <MyHeader />
+            <Register />
             <Route path='/shop' element={<Shop />}/>
           </Route>
         </Switch>

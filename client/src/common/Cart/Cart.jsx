@@ -1,25 +1,25 @@
 import React from "react"
 import "./style.css"
-import {Elements,} from '@stripe/react-stripe-js';
-import {loadStripe} from '@stripe/stripe-js';
+// import {Elements,} from '@stripe/react-stripe-js';
+// import {loadStripe} from '@stripe/stripe-js';
 import CheckoutForm from "./CheckoutForm";
-const stripePromise = loadStripe('pk_test_51N6jExDVXifGVRVqld3iYBXQNJoeKbEezmSo037wBbIFmlXeNqjwxujRyApOYsAIjma2J2qZgEaWJZ93T4mGpv7R00A1ZMSC0y');
+// const stripePromise = loadStripe('pk_test_51N6jExDVXifGVRVqld3iYBXQNJoeKbEezmSo037wBbIFmlXeNqjwxujRyApOYsAIjma2J2qZgEaWJZ93T4mGpv7R00A1ZMSC0y');
 
 const Cart = ({ CartItem, addToCart, decreaseQty }) => {
   // Stpe: 7   calucate total of items
   const totalPrice = CartItem.reduce((price, item) => price + item.qty * item.price, 0)
 
-  const options = {
-    // passing the client secret obtained from the server
-    clientSecret: "price_1N7QRhDVXifGVRVqfZwLGMcv",
-  };
+  // const options = {
+  //   // passing the client secret obtained from the server
+  //   clientSecret: "price_1N7QRhDVXifGVRVqfZwLGMcv",
+  // };
   
   // prodcut qty total
   return (
     <>
-    <Elements stripe={stripePromise} options={options}>
+    {/* <Elements stripe={stripePromise} options={options}> */}
       <CheckoutForm />
-    </Elements>
+    {/* </Elements> */}
     
       <section className='cart-items'>
         <div className='container d_flex'>
@@ -50,9 +50,7 @@ const Cart = ({ CartItem, addToCart, decreaseQty }) => {
                         <i className='fa-solid fa-xmark'></i>
                       </button>
                     </div>
-                    {/* stpe: 5 
-                    product ko qty lai inc ra des garne
-                    */}
+                 
                     <div className='cartControl d_flex'>
                       <button className='incCart' onClick={() => addToCart(item)}>
                         <i className='fa-solid fa-plus'></i>

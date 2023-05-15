@@ -41,9 +41,9 @@ const Navbar = () => {
               </li>
             </ul>
 {/* Changed to buttonToggle to no interfer with strip Button example */}
-            <button className='toggle' onClick={() => setMobileMenu(!MobileMenu)}>
+            {/* <button className='toggle' onClick={() => setMobileMenu(!MobileMenu)}>
               {MobileMenu ? <i className='fas fa-times close home-btn'></i> : <i className='fas fa-bars open'></i>}
-            </button>
+            </button> */}
           </div>
         </div>
       </header>
