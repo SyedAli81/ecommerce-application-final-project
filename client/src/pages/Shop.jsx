@@ -9,7 +9,6 @@ const Shop = ({ addToCart, shopItems }) => {
       <section className='shop background'>
         <h1>Shop Here</h1>
         <div>
-          <h2>Hoodies</h2>
         </div>
       </section>
     </>

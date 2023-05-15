@@ -8,17 +8,17 @@ const ShopCart = ({ shopItems, addToCart }) => {
     setCount(count + 1)
   }
 
-  return (
-    <>
-      {shopItems.map((shopItems, index) => {
-        return (
-          <div className='box'>
-            
-          </div>
-        )
-      })}
-    </>
-  )
-}
+//   return (
+//     <>
+//       {shopItems.map((shopItems, index) => {
+//         return (
+//           <div className='box'>
+//             <h1>Shop Here</h1>
+//           </div>
+//         )
+//       })}
+//     </>
+//   )
+// }
 
 export default ShopCart
